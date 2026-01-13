@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>CRITICAL SECURITY ALERT</title>
+
+<style>
+body {
+    background: black;
+    color: #00ff55;
+    font-family: monospace;
+    padding: 20px;
+}
+
+#terminal {
+    white-space: pre-wrap;
+    line-height: 1.4;
+}
+
+.critical {
+    color: red;
+    font-weight: bold;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<pre id="terminal"></pre>
+
+<script>
+const terminal = document.getElementById("terminal");
+
+const logs = [
+"[00:00:01] SEC-CORE :: Initializing security protocols",
+"[00:00:02] NET-MON  :: Monitoring network activity",
+"[00:00:03] FIREWALL :: Status: ACTIVE",
+"[00:00:05] ALERT    :: Suspicious behavior detected",
+"[00:00:07] TRACE    :: Tracking source...",
+"[00:00:09] TRACE    :: Source confirmed",
+"[00:00:11] ACCESS   :: Unauthorized access attempt",
+"[00:00:13] ACCESS   :: Firewall bypassed",
+"[00:00:15] WARNING  :: Data extraction in progress",
+"",
+"[00:00:18] TARGET   :: User identified: ITALO",
+"[00:00:19] TARGET   :: Age record located",
+"[00:00:20] TARGET   :: USER_AGE = 30",
+"",
+"[00:00:22] ERROR    :: Age overflow detected",
+"[00:00:23] ERROR    :: Legacy system incompatibility",
+"",
+"********** CRITICAL SYSTEM FAILURE **********",
+"",
+"INITIATING CONTAINMENT PROCEDURE..."
+];
+
+let i = 0;
+
+function typeLine() {
+    if (i < logs.length) {
+        terminal.innerHTML += logs[i] + "\n";
+        i++;
+        setTimeout(typeLine, 550);
+    } else {
+        triggerCritical();
+    }
+}
+
+function triggerCritical() {
+    terminal.innerHTML += "\n";
+    terminal.innerHTML += ">>> SYSTEM ERROR CODE: AGE-30-EXCEPTION <<<\n";
+    terminal.innerHTML += ">>> STATUS: UNRECOVERABLE <<<\n\n";
+
+    terminal.innerHTML +=
+`😈 CALMA, ITALO 😈
+
+Isso não é um ataque de verdade.
+
+Mas é verdade que você acabou de sofrer
+um upgrade automático de idade.
+
+🎉 FELIZ ANIVERSÁRIO DE 30 ANOS 🎉
+
+Novo perfil desbloqueado:
+>> Hacker nível 30
+>> Experiência +30
+>> Dor nas costas: ENABLED
+>> Energia após 22h: LIMITED
+
+Juventude:
+>> Licença expirada
+>> Renovação indisponível
+
+Aproveite o dia.
+O sistema zoou, mas comemora 🥳
+`;
+
+    terminal.innerHTML += "\n\n";
+    terminal.innerHTML += "<span class='critical'>>>> CRITICAL ERROR: REALITY ACCEPTED <<<</span>";
+}
+
+typeLine();
+</script>
+
+</body>
+</html>
